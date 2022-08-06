@@ -6,4 +6,4 @@ runs:
   entrypoint: workflow-lock
   post-entrypoint: workflow-unlock
   env:
-    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    GITHUB_TOKEN: ${{ github.token }}
