@@ -9,12 +9,12 @@ jobs:
     name: CI
     runs-on: ubuntu-latest
     steps:
-      - name: Lock
-        uses: ./workflow-lock
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Lock
+        uses: ./workflow-lock
       - name: Version
         run: |
           export VERSION=$(./version.sh)
