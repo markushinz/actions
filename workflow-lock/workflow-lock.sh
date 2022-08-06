@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-repo="markushinz/actions"
+repo="${GITHUB_REPO}"
 
 lock="lock"
 timeout=10

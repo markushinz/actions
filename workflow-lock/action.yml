@@ -1,9 +1,14 @@
 name: 'Workflow lock'
 description: 'Make sure that only one workflow at a time is running'
+inputs:
+  token:
+    description: Token
+    default: ${{ github.token }}
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   entrypoint: workflow-lock
   post-entrypoint: workflow-unlock
   env:
-    GITHUB_TOKEN: ${{ github.token }}
+    GITHUB_TOKEN: ${{ inputs.token }}
