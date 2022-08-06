@@ -1,0 +1,14 @@
+name: pre-commit
+description: Run pre-commit hooks
+runs:
+  using: composite
+  steps:
+    - name: pre-commit
+      run: |
+        pip install pre-commit
+        pre-commit run -a
+      shell: bash
+    - name: git diff
+      if: ${{ always() }}
+      run: git diff --exit-code
+      shell: bash
