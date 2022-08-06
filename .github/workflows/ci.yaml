@@ -29,9 +29,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: workflow-lock
-          # push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+          push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
           tags: |
-            ghcr.io$/{{ github.repository }}-workflow-lock:latest
+            ghcr.io/${{ github.repository }}-workflow-lock:latest
             ghcr.io/${{ github.repository }}-workflow-lock:v${{ env.VERSION }}
           cache-from: type=registry,ref=ghcr.io/${{ github.repository }}-workflow-lock:buildcache
           cache-to: type=registry,ref=ghcr.io/${{ github.repository }}-workflow-lock:buildcache,mode=max
