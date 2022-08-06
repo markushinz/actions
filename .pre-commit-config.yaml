@@ -5,3 +5,10 @@ repos:
       - id: no-commit-to-branch
       - id: end-of-file-fixer
       - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: README
+        name: README
+        entry: ./readme.sh
+        language: system
+        files: README.md
