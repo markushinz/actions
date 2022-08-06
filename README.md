@@ -1,13 +1,19 @@
 # actions
 
+[![CI](https://github.com/markushinz/actions/actions/workflows/ci.yaml/badge.svg)](https://github.com/markushinz/actions/actions/workflows/ci.yaml)
+
+A collection of reusable GitHub Actions.
+
 ```
 .
 ├── LICENSE
 ├── README.md
 ├── pre-commit
+│   ├── README.md
 │   └── action.yaml
 ├── readme.sh
 ├── version
+│   ├── README.md
 │   ├── action.yaml
 │   └── version.sh
 ├── version.txt
@@ -19,5 +25,5 @@
     ├── lock.sh
     └── unlock.sh
 
-3 directories, 13 files
+3 directories, 15 files
 ```

@@ -8,6 +8,8 @@ It blocks subsequent workflow steps while a GitHub release "lock" exists (giving
 If no release "lock" exists, it gets created and subsequent workflow steps are executed.
 Finally, the release "locks" gets deleted.
 
+This action is implemented as a Docker container action as composite actions do not support post steps.
+
 ## Usage
 
 ```yaml
