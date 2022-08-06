@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -eox pipefail
+
+env
 
 repo="${GITHUB_REPO}"
 
