@@ -1,5 +1,5 @@
-name: 'Workflow lock'
-description: 'Make sure that only one workflow at a time is running'
+name: 'Workflow Mutex'
+description: 'Synchronize workflow runs'
 inputs:
   token:
     description: Token

@@ -11,13 +11,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Mutex
+      - name: Workflow Mutex
         uses: ./workflow-mutex
-      - name: sleep
-        run: sleep 100
       - name: Version
         run: |
           export VERSION=$(./version.sh)
           echo "VERSION=${VERSION}" >> ${GITHUB_ENV}
+      - name: Release
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh release create "v${VERSION}" --generate-notes
