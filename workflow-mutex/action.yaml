@@ -1,0 +1,14 @@
+name: Workflow Mutex
+description: Synchronize workflow runs
+inputs:
+  token:
+    description: Token
+    default: ${{ github.token }}
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  entrypoint: /lock.sh
+  post-entrypoint: /unlock.sh
+  env:
+    GITHUB_TOKEN: ${{ inputs.token }}
