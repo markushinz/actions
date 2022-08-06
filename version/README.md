@@ -9,7 +9,7 @@ If you specify a command that computes a minumum version number that is greater 
 ## Usage
 
 ```yaml
-      - name: pre-commit
+      - name: Version
         uses: markushinz/actions/version@<version>
         # with:
         #   minimum_version_command: echo "1.2.3"
