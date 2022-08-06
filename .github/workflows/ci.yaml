@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: pre-commit
+        run: |
+          pre-commit run -a
+          git diff --exit-code
       - name: Workflow Mutex
         uses: ./workflow-mutex
       - name: Version
