@@ -14,9 +14,7 @@ jobs:
       - name: Workflow Mutex
         uses: ./workflow-mutex
       - name: Version
-        run: |
-          export VERSION=$(./version.sh)
-          echo "VERSION=${VERSION}" >> ${GITHUB_ENV}
+        uses: ./version
       - name: Release
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh release create "v${VERSION}" --generate-notes

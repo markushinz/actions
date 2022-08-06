@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eoux pipefail
+set -eou pipefail
 
 i=0
 while gh release view -R "${GITHUB_REPOSITORY}" --json name --jq ".name" lock | cat; do
