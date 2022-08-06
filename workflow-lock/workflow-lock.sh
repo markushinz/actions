@@ -2,20 +2,19 @@
 
 set -eo pipefail
 
-gh --version
+repo="markushinz/actions"
 
-# repo="markushinz/home"
-# lock="lock"
-# timeout=10
+lock="lock"
+timeout=10
 
-# i=0
-# while gh release view -R "${repo}" --json createdAt --jq ".createdAt" "${lock}" | cat; do
-#     ((i++))
-#     if [[ "${i}" == "${timeout}" ]]; then
-#         exit 1
-#     fi
-#     sleep 1
-# done
+i=0
+while gh release view -R "${repo}" --json createdAt --jq ".createdAt" "${lock}" | cat; do
+    ((i++))
+    if [[ "${i}" == "${timeout}" ]]; then
+        exit 1
+    fi
+    sleep 1
+done
 
-# gh release create -R "${repo}" --draft "${lock}" --generate-notes
+gh release create -R "${repo}" --draft "${lock}" --generate-notes
 # gh release delete -R "${repo}" -y "${lock}"

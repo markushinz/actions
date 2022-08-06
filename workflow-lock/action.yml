@@ -1,0 +1,7 @@
+name: 'Workflow lock'
+description: 'Make sure that only one workflow at a time is running'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: workflow-lock
+  post-entrypoint: workflow-unlock
