@@ -2,6 +2,6 @@
 
 set -eo pipefail
 
-repo="${GITHUB_REPO}"
+repo="${GITHUB_REPOSITORY}"
 lock="lock"
 gh release delete -R "${repo}" -y "${lock}"

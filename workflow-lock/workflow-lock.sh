@@ -4,7 +4,7 @@ set -eox pipefail
 
 env
 
-repo="${GITHUB_REPO}"
+repo="${GITHUB_REPOSITORY}"
 
 lock="lock"
 timeout=10
