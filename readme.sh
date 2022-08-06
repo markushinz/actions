@@ -10,6 +10,6 @@ cat << EOF > README.md
 A collection of reusable GitHub Actions.
 
 \`\`\`
-$(tree)
+$(tree -d)
 \`\`\`
 EOF
