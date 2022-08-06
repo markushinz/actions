@@ -11,4 +11,4 @@ while gh release view -R "${GITHUB_REPOSITORY}" --json createdAt --jq ".createdA
     sleep 1
 done
 
-gh release create -R "${GITHUB_REPOSITORY}" --draft "${lock}" --generate-notes
+gh release create -R "${GITHUB_REPOSITORY}" --draft lock --generate-notes
