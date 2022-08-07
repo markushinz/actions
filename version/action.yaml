@@ -20,6 +20,4 @@ runs:
         echo "${version}"
         echo "VERSION=${version}" >> ${GITHUB_ENV}
         echo "::set-output name=VERSION::${version}"
-        env
-        jq ".pull_request.labels" "${GITHUB_EVENT_PATH}"
       shell: bash
