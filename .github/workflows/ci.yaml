@@ -23,3 +23,7 @@ jobs:
       - name: Release
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh release create "v${VERSION}" --generate-notes
+      - name: Event
+        run: |
+          env
+          cat "${GITHUB_EVENT_PATH}"
