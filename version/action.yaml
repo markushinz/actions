@@ -20,4 +20,5 @@ runs:
         echo "${version}"
         echo "VERSION=${version}" >> ${GITHUB_ENV}
         echo "::set-output name=VERSION::${version}"
+        env
       shell: bash
