@@ -5,7 +5,7 @@ set -eou pipefail
 url=${1:-"$(git remote get-url origin)"}
 minimum_version=${2:-"0.0.0"}
 
-latest_tag=$(git ls-remote --tags "${url}" | cut -d / -f 3 | sort -V | tail -1)
+latest_tag=$(git ls-remote --tags "${url}" "v*" | cut -d / -f 3 | sort -V | tail -1)
 
 major=0
 minor=0
