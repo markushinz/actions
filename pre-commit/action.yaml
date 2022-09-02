@@ -6,7 +6,12 @@ runs:
     - name: pre-commit
       run: |
         pip install pre-commit
-        pre-commit run -a
+        if [[ -f .pre-commit-config.yaml ]]; then
+          pre-commit run -a
+        else
+          yq e -i 'del(.repos[] | select(.repo == "local"))' "${{ github.action_path }}/../.pre-commit-config.yaml"
+          pre-commit run -c "${{ github.action_path }}/../.pre-commit-config.yaml" -a
+        fi
       shell: bash
     - name: git diff
       if: ${{ always() }}
