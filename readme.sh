@@ -2,10 +2,12 @@
 
 set -eou pipefail
 
+url="$(gh repo view --json url --jq .url)"
+
 cat << EOF > README.md
 # actions
 
-[![CI](https://github.com/markushinz/actions/actions/workflows/ci.yaml/badge.svg)](https://github.com/markushinz/actions/actions/workflows/ci.yaml)
+[![CI](${url}/actions/workflows/ci.yaml/badge.svg)](${url}/actions/workflows/ci.yaml)
 
 A collection of reusable GitHub Actions.
 
