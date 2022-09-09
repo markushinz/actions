@@ -20,6 +20,9 @@ jobs:
         uses: ./version
         with:
           minimum_version_command: cat version.txt
+      - name: Tag
+        run: |
+          git tag -a v1
       - name: Release
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh release create "v${VERSION}" --generate-notes
