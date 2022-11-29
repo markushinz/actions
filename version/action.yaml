@@ -9,15 +9,20 @@ inputs:
     description: Command that computes the minimum version
     default: echo "0.0.0"
     required: true
+outputs:
+  version:
+    description: Version
+    value: ${{ steps.version.outputs.version }}
 runs:
   using: composite
   steps:
     - name: Version
+      id: version
       run: |
         url="https://x-access-token:${{ inputs.token }}@github.com/${{ github.repository }}.git"
         minimum_version="$(${{ inputs.minimum_version_command }})"
         version="$(${{ github.action_path }}/version.sh "${url}" "${minimum_version}")"
         echo "${version}"
         echo "VERSION=${version}" >> ${GITHUB_ENV}
-        echo "VERSION=${version}" >> ${GITHUB_OUTPUT}
+        echo "version=${version}" >> ${GITHUB_OUTPUT}
       shell: bash
