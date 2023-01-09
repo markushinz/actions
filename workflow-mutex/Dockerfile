@@ -1,4 +1,4 @@
-FROM alpine:3.17.0 as builder
+FROM alpine:3.17.1 as builder
 COPY install.sh lock.sh unlock.sh ./
 RUN apk update && \
     apk upgrade && \
