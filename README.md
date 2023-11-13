@@ -9,5 +9,5 @@ A collection of reusable GitHub Actions.
 ├── pre-commit
 └── version
 
-3 directories
+2 directories
 ```
