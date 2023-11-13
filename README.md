@@ -7,8 +7,7 @@ A collection of reusable GitHub Actions.
 ```
 .
 ├── pre-commit
-├── version
-└── workflow-mutex
+└── version
 
 3 directories
 ```

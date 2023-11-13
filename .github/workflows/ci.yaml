@@ -8,14 +8,14 @@ jobs:
   ci:
     name: CI
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: pre-commit
         uses: ./pre-commit
-      - name: Workflow Mutex
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: ./workflow-mutex
       - name: Version
         uses: ./version
         with:
